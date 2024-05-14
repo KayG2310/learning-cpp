@@ -12,3 +12,25 @@ int main() {
     
     return 0;
 }
+
+
+// continuity and discontinuity is theory check copy 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+// creating a function to display the elements
+
+int main() {
+    // iterators point to pairs
+    vector<pair<int,int>> vpair = {{1,2},{3,4}};
+    vector<pair<int,int>> :: iterator it2;
+    for(it2 = vpair.begin(); it2!= vpair.end(); it2++){
+        cout<< (*it2).first << " & " << (*it2).second << endl;
+    }
+    for(it2 = vpair.begin(); it2!= vpair.end(); it2++){
+        cout<< (it2->first) << " & " << (it2->second) << endl;
+    }
+    
+    return 0;
+}
