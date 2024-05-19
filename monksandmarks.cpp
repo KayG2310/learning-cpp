@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    map<int, set<string>>m;
+    map<int, multiset<string>>m; // if names are duplicate
     int N;
     cin>>N;
     for(int i=0; i<N; i++){
@@ -11,7 +11,7 @@ int main(){
         m[marks].insert(name);
     }
     auto it = m.end();
-    it--;
+    it--; //can use negative marks
     while(true){
         auto &name = (*it).second;
         int marks = (*it).first;
