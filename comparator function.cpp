@@ -5,9 +5,11 @@ bool shouldswap(int a, int b){
     if(a<b) return true; // change in this condition can give us increasing or decreasing
     return false;
 }
+// swap function is comparator function
 int main(){
     int n;
     cin>>n;
+    /*
     vector<int>v(n);
     for(int k=0; k<n; k++){
         cin>>v[k];
@@ -26,5 +28,9 @@ int main(){
         cout<<v[i]<<" ";
     }
     
+    */
+
     
 }
+
+// we can rewrite the same code for a vector of pairs. 
