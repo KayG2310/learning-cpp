@@ -14,4 +14,11 @@ int main() {
         num = num ^ v[i];
     }
     cout<<num;
+
+
+    // for 2n+ 2 there are two unique numbers
+     // again nested for loop or frequency table
+    // logic XOR of two different numbers can never be zero
+    // we will a xored no. we note position of set bit & find numbers from array that have set bit at that position.
+    // again take xor of all
 }
