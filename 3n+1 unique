@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    vector<int>v = {1,2,3,2,1,2,1,3,3,4};
+    int ans;
+    for(int i = 0; i<32; i++){
+        int sum;
+        for(int j =0; j<v.size(); j++){
+            int lastbit = v[j]&1;
+            sum+=lastbit;
+            v[j] = v[j]>>1;
+        }
+        if(sum%3==0){
+            ans+=0;
+        } else{
+            ans+=(pow(2,i));
+        }
+        sum = 0;
+        
+    }
+    cout<<ans;
+    
+    
+}
