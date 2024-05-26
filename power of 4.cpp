@@ -2,14 +2,17 @@
 using namespace std;
 
 bool check4(int N){
-    int mask;
-    int position = log(N)/log(4); // gives 4-> 1, 16->2
-    mask = N>>(2*position);
+       int mask;
+        if(n<0){return false;}
+        if(n==0){return false;}
+    double position = log(n)/log(4); // gives 4-> 1, 16->2
+    // 5 = 101 
+    int f = position/1;
+    if(f!=position){return false;}
+    mask = n>>(2*f);
     
     if(mask==1){
-        if(position==0){
-            return false;}
-            
+        
         return true;
         
     }else{return false;}
