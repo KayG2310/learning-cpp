@@ -48,3 +48,36 @@ int main(){
     }
     
 }
+
+
+
+
+// code for optimal approach ->
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    // using rotation logic
+    int arr[7] = {1,2,3,4,5,6,7};
+    int k;
+    cin>>k;
+    int size = sizeof(arr)/sizeof(int);
+    reverse(arr, arr+k); //first segment 
+    for(int i=0; i<size; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    
+    reverse(arr+k, arr+size);
+    for(int i=0; i<size; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    
+    reverse(arr, arr+size);
+    for(int i=0; i<size; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    
+}
