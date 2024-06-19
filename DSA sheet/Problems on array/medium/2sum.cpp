@@ -41,3 +41,35 @@ int main() {
     }
     //can put flag or put return statements
 }
+
+//optimal 
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int k=13;
+    int arr[5] = {2,6,5,8,11};
+    sort(arr, arr+5);
+    int left = 0, right = 4;
+    // for this case
+    bool flag= false;
+    
+    while(left<right){
+        if(arr[left]+arr[right]==k){
+            flag = true;
+            cout<<left<<" & "<<right;
+            break;
+        }
+        else if(arr[left]+arr[right]>k){
+            // we need to decrease right
+            right--;
+        }
+        else{
+            left++;
+        }
+    }
+    if(flag==false){
+        cout<<"not found!";
+    }
+}
+
