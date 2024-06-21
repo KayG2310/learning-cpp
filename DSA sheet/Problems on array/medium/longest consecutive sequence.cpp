@@ -75,4 +75,34 @@ int main() {
 
 
 // optimal approach --->
+#include <bits/stdc++.h>
+using namespace std;
+
+int longest_succ(int nums[], int n){
+    if(n==0) return 0;
+    unordered_set<int> s;
+    int longest = 1;
+    for(int i=0; i<n; i++){
+        s.insert(nums[i]);
+    }
+    
+    // now iterate through the set of unique elements
+    for(auto &it: s){
+        if(s.find(it-1) == s.end()){
+            // like there's no element smaller than you
+            int cnt = 1;
+            int x = it;
+            while(st.find(x+1)!=st.end()){
+                cnt++;
+                x++;
+            }
+            longest = max(longest, cnt);
+        }
+    }
+    return longest;
+}
+int main() {
+    
+   cout<<longest;
+}
 
