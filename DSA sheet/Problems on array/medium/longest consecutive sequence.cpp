@@ -19,3 +19,60 @@ int main() {
     }
    cout<<maxi;
 }
+
+// leetcode explanation ---> different interpretation
+// brute force 
+#include <bits/stdc++.h>
+using namespace std;
+
+bool linear(int arr[], int num, int n){
+    for(int i=0; i<n;i++){
+        if (arr[i]==num) return true;
+    }
+    return false;
+}
+
+int main() {
+    int arr[] = {0,3,7,2,5,8,4,6,0,1};
+    int n = sizeof(arr)/ sizeof(int);
+    int longest = 1;
+    for(int i=0; i<n; i++){
+        int x = arr[i];
+        int cnt = 1;
+        while(linear(arr, x+1,n)){
+            x = x+1;
+            cnt++;
+        }
+        longest = max(longest,cnt);
+    }
+   cout<<longest;
+}
+
+// better approach --> sort the array, submitted on leetcode
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int arr[] = {0,3,7,2,5,8,4,6,0,1};
+    int n = sizeof(arr)/ sizeof(int);
+    sort(arr,arr+n);
+    int cnt = 0;
+    int lastsmol = INT_MIN;
+    int longest = 1;
+    for(int i=0; i<n; i++){
+        if(arr[i]-1==lastsmol){
+            cnt++;
+            lastsmol = arr[i];
+        }
+        else if(lastsmol != arr[i]){
+            cnt = 1;
+            lastsmol = arr[i];
+        }
+        longest = max(longest,cnt);
+    }
+   cout<<longest;
+}
+
+
+
+// optimal approach --->
+
