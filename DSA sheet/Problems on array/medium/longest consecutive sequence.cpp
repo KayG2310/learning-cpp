@@ -18,7 +18,7 @@ int main() {
         }
     }
    cout<<maxi;
-}
+} 
 
 // leetcode explanation ---> different interpretation
 // brute force 
