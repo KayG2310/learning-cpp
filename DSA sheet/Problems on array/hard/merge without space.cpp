@@ -22,3 +22,20 @@ public:
         }    
     }
 };
+
+
+// optimal 1 by striver 
+// Online C++ compiler to run C++ program online
+
+#include <iostream>
+int main() {
+    int left = n-1;
+    int right = 0;
+    while(nums1[left]>nums2[right]){
+        swap(nums1[left], nums2[right]);
+        left--;
+        right++;
+    }
+    sort(nums1.begin(), nums1.end());
+    sort(nums2.begin(), nums2.end());
+}
