@@ -27,3 +27,20 @@ public:
         return ans;
     }
 };
+
+// optimal approach --->
+int n = nums.size();
+        // this is the optimal technique
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> ans;
+        for(int i=0; i<n; i++){
+            if(ans.empty() || nums[i][0]> ans.back()[1]){
+                // you wont consider it, it's a new interval, push it
+                ans.push_back(arr[i]);
+            }
+            else{
+                // it lies inside or can potentially 
+                ans.back()[1] = max(ans.back()[1], nums[i][1]);
+                // setting the new max range
+            }
+        return ans;
