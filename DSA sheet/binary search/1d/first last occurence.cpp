@@ -54,3 +54,4 @@ int main(){
     }
     cout<<first<<" "<<last;
 }
+// count occurences can be done the same way
