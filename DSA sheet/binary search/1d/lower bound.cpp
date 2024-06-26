@@ -21,3 +21,5 @@ int main(){
     }
     cout<<ans;
 }
+
+// this code is the same for finding the insert position
