@@ -58,3 +58,39 @@ class Solution {
 
 // binary search
 //in png
+int gasstations(vector<int>&arr, long double distance){
+	int cnt = 0;
+	for(int i=1; i<arr.size(); i++){
+		int num = ((arr[i]-arr[i-1])/distance);
+		if(arr[i]-arr[i-1] == num*distance){
+			num--;
+		}
+		cnt+=num;
+
+	}
+	return cnt;
+}
+
+double minimiseMaxDistance(vector<int> &arr, int k){
+	int n = arr.size();
+	long double low = 0;
+	long double high = 0;
+	for(int i=0; i<n-1;i++){
+		high = max(high, (long double)(arr[i+1]-arr[i]));
+	}
+	long double diff = 1e-6;
+	while(high-low>diff){
+		long double mid = (high+low)/2.0;
+		int cnt = gasstations(arr,mid);
+		if(cnt>k){
+			low = mid;
+			// distance needs to be increased
+		}
+		else{
+			high = mid;
+		}
+
+	}	
+	return high;
+}
+
