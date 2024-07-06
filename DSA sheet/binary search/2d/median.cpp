@@ -35,13 +35,14 @@ public:
     int median(vector<vector<int>> &matrix, int n, int m){
         int low = INT_MAX, high = INT_MIN;
         for(int i=0; i<n; i++){
-            low = min(low, matrix[i][0]);
-            high = max(high, matrix[i][m-1]);
+            low = min(low, matrix[i][0]); // lowest element
+            high = max(high, matrix[i][m-1]); // highest element
         }
-        int req = (m*n)/2;
+        int req = (m*n)/2; 
         while(low<=high){
-            int mid = (low+high)/2;
-            int smallequal = countsmall(matrix, n,m,mid);
+            int mid = (low+high)/2; //middle number
+            int smallequal = countsmall(matrix, n,m,mid); // calculate smaller than middle number, if its less we can go to to the right
+            // otherwise we go to the left oooooohhhhhhh
             if(smallequal<=req) low = mid+1;
             else high = mid-1;
         }
