@@ -29,7 +29,6 @@ Node* converter(vector<string>&nums){
     return head;
     
 }
-
 int main(){
     vector<string> v = {"apple", "mango", "banana", "pear"};
     Node* head = converter(v);
@@ -45,4 +44,6 @@ int main(){
         temp = (*temp).next;
     }
     cout<<i-1;
+
+    // to check if an element is present, check it during traversal
 }
