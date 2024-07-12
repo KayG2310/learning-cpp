@@ -36,7 +36,7 @@ public:
     }
 };
 
-// recursive approach
+// recursive approach, tc = n, sc=n
 Node* reverse_recursion(Node* head){
     if(head==NULL || head->next == NULL){
         return head;
