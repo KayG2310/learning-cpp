@@ -91,11 +91,93 @@ Node* deletek(Node* head, int k){
 void deletenode(Node* node){
     Node* backk = node->prev;
     Node* forw = node->next;
+    
+    if(forw == nullptr){
+        backk->next = nullptr;
+        node->prev = nullptr;
+        // node-> next is already null
+        free(node);
+        return;
+    }
+    if(backk == nullptr){
+        
+    }
     node->next = nullptr;
     node->prev = nullptr;
     backk->next = forw;
     forw->prev = backk;
     free(node);
+    return;
+}
+
+Node* insertbeforehead(Node* head, string element){
+    Node* newhead = new Node(element);
+    newhead->next = head;
+    head->prev = newhead;
+    return newhead;
+}
+
+Node* insertbeforetail(Node* head, string element){
+    // taking care of edge cases
+    if (head->next = nullptr){
+        // tail = head
+        return insertbeforehead(head, element);
+    }
+    Node* temp = head;
+    Node* pentail = new Node(element);
+    while(temp->next != nullptr){
+        temp = temp->next;
+    }
+    Node* backbox = temp->prev;
+    backbox->next = pentail;
+    pentail->prev = backbox;
+    pentail->next = temp;
+    return head;
+}
+
+Node* insertbeforek(Node* head, string element, int k){
+    if(k==1) return insertbeforehead(head, element);
+    int i=1;
+    Node* temp = head;
+    while(temp != nullptr){
+        if(i==k){
+            break;
+        }
+        i++;
+        temp = temp->next;
+    }
+    Node* backbox = temp->prev;
+    Node* insert = new Node(element);
+    backbox->next = insert;
+    insert->prev = backbox;
+    insert->next = temp;
+    temp->prev = insert;
+    return head;
+    
+}
+
+void insert(Node* node, string element){
+    Node* prevv = node->prev;
+    Node* newn = new Node(element);
+    prevv->next = newn;
+    newn->prev = prevv;
+    
+}
+
+Node* reverse(Node* head){
+    stack<string>els;
+    Node* temp = head;
+    while(temp != nullptr){
+        els.push(temp->data);
+        temp = temp->next;
+    }
+    temp = head;
+    while(temp != nullptr){
+        temp-> data = els.top();
+        els.pop();
+        temp = temp->next;
+    }
+    return head;
 }
 int main() {
     vector<string> arr = {"india", "pakistan","bangaldesh", "sri lanka"};
@@ -103,7 +185,10 @@ int main() {
     
     // we will print our linked list in this function
     //head = deletehead(head);
-    head = deletek(head,4);
+    //head = deletek(head,4);
+    //head = insertbeforehead(head,"australia");
+    //head = insertbeforetail(head,"england");
+    head = reverse(head);
     Node* temp = head;
     while(temp != nullptr){
         cout<<"previous: "<<temp->prev<<endl;
