@@ -20,4 +20,31 @@ public:
     }
 };
 
-// better / optimal O(n1+n2) using stacks
+// better / optimal O(n1+2n2) using stacks sc = n1+2n2 (map+stack)
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        vector<int>ans(nums1.size());
+        stack<int>st;
+        unordered_map<int,int>holder;
+        
+        for(int i=nums2.size()-1; i>=0; i--){
+            while(! st.empty() && st.top()<=nums2[i]){
+                st.pop();
+            }
+            if(st.empty()){
+                holder[nums2[i]] = -1;
+            }
+            else{
+                holder[nums2[i]] = st.top();
+            }
+            st.push(nums2[i]);
+    }
+    for(int i = 0; i<nums1.size(); i++){
+        ans[i] = holder[nums1[i]];
+    }
+    return ans;
+
+        
+    }
+};
