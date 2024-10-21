@@ -14,6 +14,9 @@ int knapsack(vector<int> weight, vector<int> value, int n, int maxWeight)
 	return f(0, weight, value, n, maxWeight);
 }
 
+
+
+
 //------------------------------------------------------------------------------------------------------------------
 
 // memoized code (my version)
@@ -69,6 +72,23 @@ int knapsack(vector<int> weight, vector<int> value, int n, int maxWeight) {
 			}
 			next = cur;
 
+		}
+        return next[maxWeight];
+}
+
+// v imp addition
+#include <bits/stdc++.h> 
+int knapsack(vector<int> weight, vector<int> value, int n, int maxWeight) {
+        vector<int>next(maxWeight+1,0);
+		for(int i=n-1; i>=0; i--){
+			for(int w=maxWeight; w>=0; w--){
+				int pick = INT_MIN;
+				if(weight[i]<= w){
+					pick = value[i]+next[w-weight[i]];
+				}
+				int notpick = next[w];
+				next[w] = max(pick, notpick);
+			}
 		}
         return next[maxWeight];
 }
