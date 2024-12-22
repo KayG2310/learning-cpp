@@ -71,3 +71,4 @@ string completeString(int n, vector<string> &a){
     if(longest.length()==0) return "None";
     return longest;
 }
+// tc = n*len
