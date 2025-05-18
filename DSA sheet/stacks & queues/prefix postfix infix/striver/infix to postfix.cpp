@@ -1,5 +1,5 @@
 // gfg q
-
+// as per striver if priority of top is <= then also push --> in case of infix to prefix, this should be strictly < than
 class Solution {
   public:
     string infixToPostfix(string& s) {
