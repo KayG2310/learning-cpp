@@ -60,15 +60,16 @@ public:
     else return false;
 }
 };
+// let's dry run 
+/*
+s = abcd
+g = cdab
+i = 0, j = 0, k = 0, matched = 0, n = 4
+if no, else yes, i=0, so j=1 i = 0,k = 0, matched = 0, n = 4
+if no, else yes, i=0 so j = 2
+if yes, i=1, j=3, matched = 1, k = 3 (match from here now) 
+if yes, i=2, j=4, matched = 2 
+if yes 
+if yes 
 
-//s=bbbacddceeb
-//g=ceebbbbacdd
-
-//i=0,j=0,n=11,m=0,k=0 ---INITIAL
-//i=0,j=1,m=0
-//i=0,j=2,m=0
-//i=0,j=3,m=0
-//i=1,j=4,m=1,k=4
-//i=2,j=5,m=2,k=4
-//i=3,j=6,m=3,k=4
-//i=0,j=4,m=0,k=4
+*/
