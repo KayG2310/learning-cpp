@@ -13,8 +13,7 @@ class Solution
             Node* node = p.first;
             int x = p.second;
             // int y = p.second.second;
-            if(ans.find(x) == ans.end())
-                ans[x] = node->data;
+            ans[x] = node->data; // update no matter what
             if(node->left) q.push({node->left, x-1});
             if(node->right) q.push({node->right, x+1});
         }
