@@ -1,3 +1,5 @@
+// approach 1 --> push in stack (current element, current minimum) 
+
 class MinStack {
     stack<long long>st;
     long long mini;
