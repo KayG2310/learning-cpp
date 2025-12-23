@@ -6,7 +6,7 @@ class Solution {
           if(!visited[it]){
               if(dfs(it, adj, visited, path)==true) return true;
           }
-          else if(path[it]==1) return true;
+          else if(path[it]==1) return true; // means it was visited in current path
       }
       path[node]=0;
       return false;
