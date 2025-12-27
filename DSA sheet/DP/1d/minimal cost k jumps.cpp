@@ -20,3 +20,6 @@ class Solution {
     }
 }; 
 // tc = O(N*K) sc = 2n 
+/*
+Can optimise space to k but of no use when k=n so not needed
+*/
