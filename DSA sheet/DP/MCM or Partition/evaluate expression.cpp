@@ -2,6 +2,7 @@
 
 // recursive code -- tc = exp
 int mod = 1000000007;
+// is true denotes if you want current expression range to be true or not
 long long f(int i, int j, int isTrue, string &exp){
     if(i>j) return 0;
     if(i==j){
