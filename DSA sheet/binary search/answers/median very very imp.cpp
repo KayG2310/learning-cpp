@@ -3,7 +3,7 @@ double median(vector<int> &a, vector<int>&b){
     int n2 = b.size();
     if(n1>n2) return median(b,a);
     int low = 0, high = n1;
-    int left = (n1+n2+1)/2;
+    int left = (n1+n2+1)/2; // in one partition how many should be there
     int n = n1+n2;
     while(low<=high){
         int mid1 = (low+high)/2;
