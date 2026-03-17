@@ -5,7 +5,7 @@ int minSubsetSumDifference(vector<int>& arr, int n) {
     for (int i = 0; i < n; i++) totSum += arr[i];
     vector<vector<bool>> dp(n, vector<bool>(totSum + 1, false)); // if this sum exists till this index or not
     for (int i = 0; i < n; i++) dp[i][0] = true; // if you dont pick any ==> 0 exists ==> true
-    if (arr[0] <= totSum) dp[0][totSum] = true;
+    if (arr[0] <= totSum) dp[0][arr[0]] = true;
     for (int ind = 1; ind < n; ind++) {
         for (int target = 1; target <= totSum; target++) {
             bool notTaken = dp[ind - 1][target];
