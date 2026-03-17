@@ -1,43 +1,19 @@
-
 #include <bits/stdc++.h>
 using namespace std;
-
-// Function to find the minimum absolute difference between two subset sums
 int minSubsetSumDifference(vector<int>& arr, int n) {
     int totSum = 0;
-
-    // Calculate the total sum of the array
-    for (int i = 0; i < n; i++) {
-        totSum += arr[i];
-    }
-
-    // Initialize a DP table to store the results of the subset sum problem
-    vector<vector<bool>> dp(n, vector<bool>(totSum + 1, false));
-
-    // Base case: If no elements are selected (sum is 0), it's a valid subset
-    for (int i = 0; i < n; i++) {
-        dp[i][0] = true;
-    }
-
-    // Initialize the first row based on the first element of the array
-    if (arr[0] <= totSum)
-        dp[0][totSum] = true;
-
-    // Fill in the DP table using a bottom-up approach
+    for (int i = 0; i < n; i++) totSum += arr[i];
+    vector<vector<bool>> dp(n, vector<bool>(totSum + 1, false)); // if this sum exists till this index or not
+    for (int i = 0; i < n; i++) dp[i][0] = true; // if you dont pick any ==> 0 exists ==> true
+    if (arr[0] <= totSum) dp[0][totSum] = true;
     for (int ind = 1; ind < n; ind++) {
         for (int target = 1; target <= totSum; target++) {
-            // Exclude the current element
             bool notTaken = dp[ind - 1][target];
-
-            // Include the current element if it doesn't exceed the target
             bool taken = false;
-            if (arr[ind] <= target)
-                taken = dp[ind - 1][target - arr[ind]];
-
+            if (arr[ind] <= target) taken = dp[ind - 1][target - arr[ind]];
             dp[ind][target] = notTaken || taken;
         }
     }
-
     int mini = 1e9;
     for (int i = 0; i <= totSum; i++) {
         if (dp[n - 1][i] == true) {
@@ -48,13 +24,3 @@ int minSubsetSumDifference(vector<int>& arr, int n) {
     }
     return mini;
 }
-
-int main() {
-    vector<int> arr = {1, 2, 3, 4};
-    int n = arr.size();
-
-    cout << "The minimum absolute difference is: " << minSubsetSumDifference(arr, n);
-
-    return 0;
-}
-
