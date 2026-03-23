@@ -1,13 +1,3 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
@@ -35,3 +25,26 @@ public:
 }; 
 
 // tc = n*len of each*log (total) sc = total els *2
+
+
+// optimal nlog k (same as divide and conquer) 
+#define pii pair<int, ListNode*>
+class Solution {
+public:
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        priority_queue<pii, vector<pii>, greater<pii>>minheap;
+        ListNode* dummy = new ListNode(-1);
+        ListNode* head = dummy;
+        int n = lists.size();
+        for(int i=0; i<n; i++) if(lists[i]) minheap.push({lists[i]->val, lists[i]});
+        while(!minheap.empty()){
+            head->next = minheap.top().second; 
+            head = head->next; 
+            minheap.pop();
+            if(head->next){
+                minheap.push({head->next->val, head->next});
+            }
+        }
+        return dummy->next;
+    }
+};
